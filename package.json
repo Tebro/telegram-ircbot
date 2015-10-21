@@ -1,0 +1,11 @@
+{
+  "name": "ircbot",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "irc": "^0.4.0",
+    "request": "^2.65.0"
+  }
+}

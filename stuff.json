@@ -1,0 +1,9 @@
+//A chats schema
+{
+  "id": 12314,
+  "username": "@fobar",
+  "nick": "foobar",
+  "channels": [
+    "#somechannel"
+  ]
+}
