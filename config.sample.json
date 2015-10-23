@@ -1,3 +1,5 @@
 {
-  "apiToken": "xxxxxxx"
+  "apiToken": "xxxxxxx",
+  "botNick": "TelegramIrcBot",
+  "ircServer": "irc.quakenet.org"
 }

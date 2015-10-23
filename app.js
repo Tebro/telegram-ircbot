@@ -11,6 +11,8 @@ var db = null;
 
 var config_file = "config.json";
 var database_file = "database.json";
+
+var ircServer = "irc.quakenet.org";
 var botNick = "TelegramIrcBot";
 
 var quakeNet;
@@ -45,6 +47,10 @@ if (db_exists){
 if(fs.existsSync(config_file)){
     fs.readFile(config_file, function(err, data){
         var parsedData = JSON.parse(data);
+        if(typeof  parsedData.apiToken == "undefined"){
+            console.error("No API Token defined in config!");
+            process.exit(1);
+        }
         telegramToken = parsedData.apiToken;
         apiBase = "https://api.telegram.org/bot" + telegramToken + "/";
 
@@ -52,6 +58,10 @@ if(fs.existsSync(config_file)){
         request({uri: apiBase + "getMe"}, function(error, response, body){
             console.log("API TEST RESPONSE: " + body);
         });
+
+        if(typeof parsedData.ircServer != "undefined") ircServer = parsedData.ircServer;
+        if(typeof parsedData.botNick != "undefined") botNick = parsedData.botNick;
+
     });
 }else {
     console.error("Config file \"config.json\" not found!");
