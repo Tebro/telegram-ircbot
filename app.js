@@ -119,12 +119,14 @@ function getUpdates(){
 
                 var chat_exists = false;
                 var theChat;
-                db.chats.forEach(function (chat) {
+                for(var i = 0; i < db.chats.length; i++){
+                    var chat = db.chats[i];
                     if (chat.id == chat_id) {
                         chat_exists = true;
                         theChat = chat;
+                        break;
                     }
-                });
+                }
 
                 if (!chat_exists) {
                     theChat = {
