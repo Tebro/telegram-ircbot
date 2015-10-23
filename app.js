@@ -194,10 +194,11 @@ function getUpdates(){
 
             //Save the new db to file
             fs.writeFile(database_file, JSON.stringify(db));
+            getUpdates();
         }
     });
 }
-setInterval(getUpdates, 10000);
+setTimeout(getUpdates, 1000);
 
 
 function updateIrcClient() {
