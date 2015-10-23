@@ -194,8 +194,8 @@ function getUpdates(){
 
             //Save the new db to file
             fs.writeFile(database_file, JSON.stringify(db));
-            getUpdates();
         }
+        getUpdates();
     });
 }
 setTimeout(getUpdates, 1000);
